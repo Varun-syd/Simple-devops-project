@@ -30,12 +30,12 @@ jobs:
 
       # Step 4: Build Docker image (but don’t push yet)
       - name: Build Docker image (local)
-        run: docker build -t my-html-app:test .
+        run: docker build -t my-html-app .
 
       # Step 5: Run container for testing
       - name: Run container
         run: |
-          docker run -d -p 8080:80 --name test-container my-html-app:test
+          docker run -d -p 8080:80 --name test-container my-html-app
           sleep 5
 
       # Step 6: Test container response
@@ -53,4 +53,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: mydockerhubuser/my-html-app:latest
+          tags: varund45/my-html-app
